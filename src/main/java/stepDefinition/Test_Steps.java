@@ -27,7 +27,13 @@ public class Test_Steps
 		 driver.findElement(By.cssSelector("input[name='username']")).sendKeys(username); 
 	     driver.findElement(By.cssSelector("input[name='password']")).sendKeys(password);
 	     driver.findElement(By.cssSelector("a[name='login_button']")).click();
-	     driver.findElement(By.cssSelector("#alerts button.close ")).click();   
+	     
+	     try
+	     {
+	    	 if( driver.findElement(By.cssSelector("#alerts button.close ")).isDisplayed())
+	    		 driver.findElement(By.cssSelector("#alerts button.close ")).click();   
+	     }
+	     catch(Exception e) {}
 	}
 
 	@Then("^Message displayed Login Successfully$")
@@ -39,8 +45,8 @@ public class Test_Steps
 	@When("^User LogOut from the Application$")
 	public void user_LogOut_from_the_Application() throws Throwable 
 	{
-		 driver.findElement(By.cssSelector("#userActions .btn")).click(); 
-		 driver.findElement(By.cssSelector(".dropdown-menu .profileactions-logout")).click(); 
+		driver.findElement(By.cssSelector("#userActions .btn")).click();
+		driver.findElement(By.cssSelector(".dropdown-menu .profileactions-logout")).click(); 
 	}
 
 	@Then("^Message displayed LogOut Successfull$")
