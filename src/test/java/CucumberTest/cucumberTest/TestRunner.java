@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
  
 @RunWith(Cucumber.class)
 @CucumberOptions(
- features = "Feature"
+ features = "Features"
  ,glue={"stepDefinition"}
  )
  
